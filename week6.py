@@ -9,22 +9,25 @@ class Posting:
             input_title = input('게시글 제목 : ') 
             input_text = input('게시글 내용 : ')
             self.board.append(Posting().post_create(id_number, input_title, input_text))
-        Posting().post_search()
+        Posting().post_search(self.board)
 
     def post_create(self, id, title, text):
-        test = {
+        dictionary = {
             'id' : id,
             'title' : title,
             'text' : text  
         }
         print('저장되었습니다.')
-        return test
+        return dictionary
     
-    def post_search(self):
+    def post_search(self, board):
         search_id = input('게시물을 검색해주세요 : ')
-        if int(search_id) in self.board:
-            print('find')
-        else :
-            print('no result')
+        print(board)
+        #print(board[1].val ues()) # 2, 2, 2
+        #print(board[1].[key = "id"].values()) #  #
+        for i in range(0, len(board)):
+            if search_id in board[i]["id"].values():
+                print('find')
 
+# 깃헙 브런치 바꾸는 법
 Posting().post_write()
