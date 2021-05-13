@@ -22,12 +22,28 @@ class Posting:
     
     def post_search(self, board):
         search_id = input('게시물을 검색해주세요 : ')
-        print(board)
+        find = False
+        result_title = None
+        result_text = None
+        for post in board:
+            if post['id'] == int(search_id):
+                find = True
+                result_title = post['title']
+                result_text = post['text']
+
+        if find:
+            print('찾음')
+            print(result_title)
+            print(result_text)
+        else:
+            print('못찾음')
+
+
         #print(board[1].val ues()) # 2, 2, 2
         #print(board[1].[key = "id"].values()) #  #
-        for i in range(0, len(board)):
-            if search_id in board[i]["id"].values():
-                print('find')
+        # for i in range(0, len(board)):
+        #     if search_id in board[i]["id"].values():
+        #         print('find')
 
 # 깃헙 브런치 바꾸는 법
 Posting().post_write()
